@@ -1,0 +1,6 @@
+node_modules
+dist
+
+# Build code in lib
+lib/**/*.js
+lib/**/*.jsx

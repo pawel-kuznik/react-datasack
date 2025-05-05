@@ -1,0 +1,43 @@
+{
+  "name": "react-datasack",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --jsx preserve --p ./tsconfig-build.json && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "clear-build-artifacts": "find lib -name '*.js' -or -name '*.jsx' -type f -delete",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "overrides-old": {
+    "minimatch": "5.1.2",
+    "glob": "11.0.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "babel-jest": "^29.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vite-plugin-dts": "^4.0.0-beta.2"
+  },
+  "dependencies": {
+    "@pawel-kuznik/datasack": "^1.4.2",
+    "@pawel-kuznik/iventy": "^3.0.6",
+    "@pawel-kuznik/react-on-ivents": "^1.1.3"
+  }
+}
