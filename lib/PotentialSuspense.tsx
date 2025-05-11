@@ -1,5 +1,5 @@
 import { CollectionPotential, Entry, EntryPotential } from "@pawel-kuznik/datasack";
-import { ReactNode, Suspense, createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { PropsWithChildren, ReactNode, Suspense, createContext, useCallback, useEffect, useMemo, useState } from "react";
 
 interface GetResultType {
     <TEntry extends Entry>(entry: EntryPotential<TEntry>): TEntry;
@@ -100,11 +100,17 @@ export const PromiseContext = createContext<PromiseContextData>({
     }
 });
 
-export interface PotentialSuspenseProps {
+export interface PotentialSuspenseProps extends PropsWithChildren {
+    /**
+     * The fallback component to render while the promise is being resolved.
+     */
     fallback?: ReactNode;
-    children?: ReactNode;
 };
 
+/**
+ *  A component that catches promises thrown by the usePotentialCollection and usePotentialEntry hooks.
+ *  It should be used as a wrapper for the hooks.
+ */
 export function PotentialSuspense({ fallback, children }: PotentialSuspenseProps) {
 
     const [ collectionData ] = useState<CollectionRegistry>(() => new CollectionRegistry());
